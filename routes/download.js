@@ -12,7 +12,7 @@ router.get("/:uuid", async (req, res) => {
   }
   const response = await file.save();
   // uploads\1638172828519-214729520.jpg
-  var filename = file.path.split("\\").pop();
+  var filename = file.path.split("/").pop();
   // get local file path from file name /uploads/ + filename
   var filepath = path.join(__dirname, "../uploads", filename);
   res.download(filepath, filename);
