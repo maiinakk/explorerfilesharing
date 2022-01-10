@@ -3,7 +3,7 @@ const fs=require('fs');
 const connectDB=require('./config/db');
 
 async function deletedata(){
-    const pastdate :new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const pastdate=new Date(Date.now() - 24 * 60 * 60 * 1000);
     const files=await File.find({ createdAt: {$lt: pastdate}});
     if(files.length){
         for(const file of files){
